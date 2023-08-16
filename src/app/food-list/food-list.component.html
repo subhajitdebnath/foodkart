@@ -1,0 +1,4 @@
+<div *ngFor="let food of foods" class="food">
+    <p>{{food.name}}</p>
+    <button (click)="selectFood(food)">select</button>
+</div>

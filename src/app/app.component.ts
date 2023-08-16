@@ -7,44 +7,65 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  cart = [
+  foods = [
     {
       id: 1,
       name: 'Breads',
-      price: '100',
+      price: 100,
       quantity: 5
     },
     {
       id: 1,
       name: 'Meat',
-      price: '200',
+      price: 200,
       quantity: 4
     },
     {
       id: 1,
       name: 'Salad',
-      price: '300',
+      price: 300,
       quantity: 2
     },
     {
       id: 1,
       name: 'Pizza',
-      price: '400',
+      price: 400,
       quantity: 10
     }
   ]
-  searchText= '';
-  searchData= '';
+
+  minPrice = 0;
+  maxPrice = 0;
+
+  allFoods: any[] = [];
+
+  selectedFood: any = null;
 
   constructor() {
-    console.log('hi');
-  } 
-
-  resetFilter(){
-    this.searchText='';
+    
   }
-  onChange(){
-    console.log("I am click event");
+
+  ngOnInit() {
+    this.allFoods = this.foods;
+  }
+
+  selectFood(event: any) {
+    console.log(event);
+    this.selectedFood = event;
+  }
+
+  applyFilter(minPrice: number, maxPrice: number) {
+    this.foods = this.foods.filter((food: any) => {
+      return food.price >= minPrice && food.price <= maxPrice;
+    })
+  }
+
+  resetFilter() {
+    this.minPrice = 0;
+    this.maxPrice = 0;
+    this.foods = this.allFoods;
+
+    this.selectedFood = null;
   }
 
 }
