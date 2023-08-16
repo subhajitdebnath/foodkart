@@ -33,8 +33,18 @@ export class AppComponent {
       quantity: 10
     }
   ]
+  searchText= '';
+  searchData= '';
 
   constructor() {
     console.log('hi');
+  } 
+
+  resetFilter(){
+    this.searchText='';
   }
+  onChange(){
+    console.log("I am click event");
+  }
+
 }
