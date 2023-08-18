@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { FoodListComponent } from './food-list/food-list.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterPipe,
-    FoodListComponent
+    FoodListComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

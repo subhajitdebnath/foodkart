@@ -34,13 +34,9 @@ export class AppComponent {
     }
   ]
 
-  minPrice = 0;
-  maxPrice = 0;
-
+  //Set value for price and quantity
   allFoods: any[] = [];
-
   selectedFood: any = null;
-
   constructor() {
     
   }
@@ -54,17 +50,18 @@ export class AppComponent {
     this.selectedFood = event;
   }
 
-  applyFilter(minPrice: number, maxPrice: number) {
-    this.foods = this.foods.filter((food: any) => {
-      return food.price >= minPrice && food.price <= maxPrice;
+  applyFilter(filterData: any) {
+      this.foods = this.foods.filter((food: any) => {
+      return food.price >= filterData.minValue && food.price <= filterData.maxValue ||
+      food.quantity >= filterData.minValue && food.quantity <= filterData.maxValue;
     })
+    // console.log(filterData.minValue);
+    // console.log(filterData.maxValue);
+    
   }
 
   resetFilter() {
-    this.minPrice = 0;
-    this.maxPrice = 0;
     this.foods = this.allFoods;
-
     this.selectedFood = null;
   }
 

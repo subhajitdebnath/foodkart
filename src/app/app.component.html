@@ -1,8 +1,5 @@
 
-<input type="text" [(ngModel)]="minPrice">
-<input type="text" [(ngModel)]="maxPrice">
-<button (click)="applyFilter(minPrice, maxPrice)">apply</button>
-<button (click)="resetFilter()">reset</button>
+<app-filter (apply)="applyFilter($event)" (reset)="resetFilter()"></app-filter>
 
 <div class="food" *ngIf="selectedFood">
     <p>Selected Food</p>
@@ -13,5 +10,4 @@
 
 <app-food-list [foods] = foods (select)="selectFood($event)"></app-food-list>
 
-//apply a filter of quantity to filter the cart items
-// create a component called filter and put separate the filter logic in the component
+//separate the selected food div from App Component by creating new component selected-food. make it work.
