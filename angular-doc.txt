@@ -1,0 +1,52 @@
+
+service is a singleton class in angular
+Singleton => A class which can be instantiated only once is called a singleton class.
+
+
+public class Car {
+
+    color = 'red';
+    hp = 5000;
+    speed = 100;
+
+    constructor() {
+    }
+}
+
+
+// creating object of Car
+
+let bmw = new Car('black', 2000, 200);
+let mercedece = new Car('red', 3000, 300);
+
+console.log(bmw.speed); // 200
+console.log(mercedece.speed); // 300
+
+bmw.speed = 250;
+
+console.log(bmw.speed); // 250
+console.log(mercedece.speed); // 300
+
+
+
+// dependency creation (background)
+let Car = new Car();
+
+
+// Actual
+
+export class FoodListComponent {
+
+    constructor(private car: Car, private house: House)
+
+    this.car.speed = 50;
+
+}
+
+export class FilterComponent  {
+
+    constructor(private car: Car)
+
+    console.log(this.car.speed)
+
+}
