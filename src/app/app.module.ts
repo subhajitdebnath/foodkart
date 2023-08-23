@@ -8,6 +8,8 @@ import { FilterPipe } from './filter.pipe';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FilterComponent } from './filter/filter.component';
 import { SelectedFoodComponent } from './selected-food/selected-food.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SelectedFoodComponent } from './selected-food/selected-food.component';
     FilterPipe,
     FoodListComponent,
     FilterComponent,
-    SelectedFoodComponent
+    SelectedFoodComponent,
+    HeaderComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

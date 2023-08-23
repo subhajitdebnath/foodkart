@@ -1,9 +1,7 @@
+<app-header></app-header>
+<!-- <app-filter (apply)="applyFilter($event)" (reset)="resetFilter()"></app-filter> -->
 
-<app-filter (apply)="applyFilter($event)" (reset)="resetFilter()"></app-filter>
+<!-- <app-selected-food [selectedFood] = selectedFood></app-selected-food> -->
+<!-- <app-food-list [foods] = foods (select)="selectFood($event)"></app-food-list> -->
 
-<app-selected-food [selectedFood] = selectedFood></app-selected-food>
-<app-food-list [foods] = foods (select)="selectFood($event)"></app-food-list>
-
-//separate the selected food div from App Component by creating new component selected-food. make it work.
-
-// study about services and singleton class and dependency injection
+<router-outlet></router-outlet>
