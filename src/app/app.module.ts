@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { FoodListComponent } from './food-list/food-list.component';
 import { FilterComponent } from './filter/filter.component';
+import { SelectedFoodComponent } from './selected-food/selected-food.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterPipe,
     FoodListComponent,
-    FilterComponent
+    FilterComponent,
+    SelectedFoodComponent
   ],
   imports: [
     BrowserModule,

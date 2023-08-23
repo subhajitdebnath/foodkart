@@ -1,13 +1,7 @@
 
 <app-filter (apply)="applyFilter($event)" (reset)="resetFilter()"></app-filter>
 
-<div class="food" *ngIf="selectedFood">
-    <p>Selected Food</p>
-    <p>{{selectedFood.name}}</p>
-    <p>{{selectedFood.price}}</p>
-    <p>{{selectedFood.quantity}}</p>
-</div>
-
+<app-selected-food [selectedFood] = selectedFood></app-selected-food>
 <app-food-list [foods] = foods (select)="selectFood($event)"></app-food-list>
 
 //separate the selected food div from App Component by creating new component selected-food. make it work.
