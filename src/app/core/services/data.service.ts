@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -10,7 +11,9 @@ export class DataService {
 
   refreshCart = new BehaviorSubject(this.cartData);
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   addToCartData(food: any): void {
     this.cartData.push(food);
@@ -21,6 +24,14 @@ export class DataService {
 
   getCartData(): any {
     return this.cartData;
+  }
+
+  getTodos() {
+    return this.http.get('https://dummyjson.com/todos');
+  }
+
+  getProducts() {
+    return this.http.get('https://dummyjson.com/products');
   }
 
 }

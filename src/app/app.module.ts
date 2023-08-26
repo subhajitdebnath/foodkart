@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { FilterComponent } from './filter/filter.component';
 import { SelectedFoodComponent } from './selected-food/selected-food.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { ContactusComponent } from './contactus/contactus.component';
     FilterComponent,
     SelectedFoodComponent,
     HeaderComponent,
-    ContactusComponent
+    ContactusComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
