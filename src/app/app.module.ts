@@ -12,6 +12,7 @@ import { SelectedFoodComponent } from './selected-food/selected-food.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { TodoComponent } from './todo/todo.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TodoComponent } from './todo/todo.component';
     SelectedFoodComponent,
     HeaderComponent,
     ContactusComponent,
-    TodoComponent
+    TodoComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
