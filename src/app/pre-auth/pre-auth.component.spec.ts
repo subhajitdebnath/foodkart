@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoComponent } from './todo.component';
+import { PreAuthComponent } from './pre-auth.component';
 
-describe('TodoComponent', () => {
-  let component: TodoComponent;
-  let fixture: ComponentFixture<TodoComponent>;
+describe('PreAuthComponent', () => {
+  let component: PreAuthComponent;
+  let fixture: ComponentFixture<PreAuthComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TodoComponent]
+      declarations: [PreAuthComponent]
     });
-    fixture = TestBed.createComponent(TodoComponent);
+    fixture = TestBed.createComponent(PreAuthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

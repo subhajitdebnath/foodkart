@@ -8,21 +8,5 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class HeaderComponent {
 
-  cartLength = 0;
-
-  constructor(
-    private dataService: DataService
-  ) {}
-
-  ngOnInit(): void {
-    this.getCartData();
-  }
-
-  getCartData(): void {
-    this.dataService.refreshCart.subscribe((cartInfo: any) => {
-      console.log(cartInfo);
-      this.cartLength = cartInfo.length;
-    });
-  }
 
 }

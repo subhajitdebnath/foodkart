@@ -1,0 +1,10 @@
+#project routes
+
+modules
+
+- Pre Auth (eg: login/register)
+- Post Auth (eg: Profile, Checkout)
+- Auth Independent (eg: Home)
+
+
+Tasks: create "post-auth" and "auth-independent" modules
