@@ -1,6 +1,18 @@
-<p>product-detail works!</p>
-<div *ngIf="product">
+<!-- <div *ngIf="product">
   <h3>{{ product.title }}</h3>
   <h4>{{ product.price | currency }}</h4>
   <p>{{ product.description }}</p>
+</div> -->
+<div class="card" *ngIf = "product" style="width: 20rem; margin:10px;">
+  <img class="card-img-top" [src]="product.thumbnail" [alt]="product.images">
+  <div class="card-body">
+   <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.description}} </p>
+      Price - {{product.price | currency}} <br/>
+      DiscountPercentage - {{product.discountPercentage}} <br/>
+      Brand - {{product.brand}} <br/>
+      Stock - {{product.stock}} <br/>
+      Category - {{product.category}}
+      <a [routerLink]="'/contact'" class="btn btn-primary">product</a>
+  </div>
 </div>
