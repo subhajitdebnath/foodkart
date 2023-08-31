@@ -34,4 +34,8 @@ export class DataService {
     return this.http.get('https://dummyjson.com/products');
   }
 
+  getProduct(id :any){
+    return this.http.get(`https://dummyjson.com/products/${id}`);
+  }
+
 }
