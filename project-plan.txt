@@ -7,4 +7,6 @@ modules
 - Auth Independent (eg: Home)
 
 
-Tasks: create "post-auth" and "auth-independent" modules
+Tasks: 
+1. Create registration component and form inside pre-auth
+2. Read about form buttons with types "submit" and "reset"

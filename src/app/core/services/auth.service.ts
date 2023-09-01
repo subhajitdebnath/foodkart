@@ -5,10 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private user = {
-    id: 1,
-    name: 'abc'
-  };
+  private user = null;
 
   constructor() { }
 
