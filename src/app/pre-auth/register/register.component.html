@@ -1,0 +1,36 @@
+<h1>Register Page</h1>
+
+<div class="container mt-5">
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-body">
+            <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-3">
+                <label>First Name</label>
+                <input type="text" class="form-control" formControlName="firstname">
+            </div>
+            <div class="form-group mb-3">
+                <label>Last Name</label>
+                <input type="text" class="form-control" formControlName="lastname">
+            </div>
+            <div class="form-group mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group mb-3">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <div class="form-group mb-3">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirmpassword">
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+            </form>
+        </div>
+        </div>
+
+
+
