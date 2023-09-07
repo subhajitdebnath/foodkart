@@ -9,11 +9,14 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Cart(0)</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="contact">Contact Us</a>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a class="nav-link" aria-current="page" routerLink="/auth">Login</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="todo">To Do</a>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a class="nav-link" aria-current="page" routerLink="/auth/register">SignUp</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a class="nav-link" aria-current="page" href="#">Logout</a>
           </li>
         </ul>
         <form class="d-flex" role="search">

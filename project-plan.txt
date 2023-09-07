@@ -7,11 +7,6 @@ modules
 - Auth Independent (eg: Home)
 
 
-Tasks: 
-1. Create registration component and form inside pre-auth
-2. Read about form buttons with types "submit" and "reset"
-
 Task: 
-
-1. Cover todays topics
-2. Read about Session and Local storage
+1. Implement logout functionality
+2. Call the products list api from dummyjson and show the products grid

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +17,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
+    private lsService: LocalstorageService,
   ) {}
 
   ngOnInit() {
@@ -31,6 +35,14 @@ export class LoginComponent {
     
     this.authService.login(this.loginForm.value).subscribe(res => {
       console.log(res);
+      // save the login Info
+      this.lsService.setItem('authData', JSON.stringify(res));
+
+      // changing the auth service user info
+      this.authService.checkUserState();
+
+      alert('Login Success');
+      this.router.navigate(['']);
     }, err => {
       console.log(err);
     });
