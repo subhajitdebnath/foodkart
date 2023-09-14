@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', 
     loadChildren: () => import('./auth-independent/auth-independent.module').then(m => m.AuthIndependentModule) 
   },
-  { path: 'auth', 
+  { path: 'login', 
     canActivate: [loginGuard], 
     component: PreAuthComponent,
     loadChildren: () => import('./pre-auth/pre-auth.module').then(m => m.PreAuthModule) 
