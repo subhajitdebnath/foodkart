@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/core/services/cart.service';
 import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
@@ -8,15 +9,22 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class ProductListComponent {
   products : any[] = [];
-//Inject data service here 
-constructor(private dataService:DataService){}
+  //Inject data service here 
+  constructor(
+    private dataService: DataService,
+    private cartService: CartService,
+  ){}
 
-ngOnInit(){
-  this.dataService.getProduct().subscribe((data : any) =>{
-     console.log(data.products);
-    this.products = data.products;
-  });
-}
+  ngOnInit(){
+    this.dataService.getProduct().subscribe((data : any) =>{
+      console.log(data.products);
+      this.products = data.products;
+    });
+  }
+
+  addToCart(index: number) {
+    this.cartService.add(this.products[index]);
+  }
 
 
 }

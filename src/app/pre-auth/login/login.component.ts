@@ -41,7 +41,7 @@ export class LoginComponent {
       // changing the auth service user info
       this.authService.checkUserState();
 
-      alert('Login Success');
+      // alert('Login Success');
       this.router.navigate(['']);
     }, err => {
       console.log(err);

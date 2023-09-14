@@ -8,5 +8,4 @@ modules
 
 
 Task: 
-1. Implement logout functionality
-2. Call the products list api from dummyjson and show the products grid
+1. Quantity Management in cart

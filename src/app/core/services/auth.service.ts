@@ -31,8 +31,10 @@ export class AuthService {
     if(auth) {
       // console.log(JSON.parse(auth));
       this.user = JSON.parse(auth);
-      this.userState.next(this.user);
+    } else {
+      this.user = null;
     }
+    this.userState.next(this.user);
   }
 
   login(payload: any) {

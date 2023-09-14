@@ -1,12 +1,13 @@
 <h2>Product</h2>
 <div class="container text-center">
   <div class="row">
-    <div class="col" *ngFor="let product of products">
+    <div class="col" *ngFor="let product of products; let i = index">
       <div class="card" style="width: 20rem">
         <img [src]="product.images[0]" class="card-img-top" [alt]="product.title">
         <div class="card-body">
           <h5 class="card-title">{{ product.title }}</h5>
           <p class="card-text">{{ product.description }}</p>
+          <button class="btn btn-primary" (click)="addToCart(i)">Add To Cart</button>
         </div>
       </div>
       <div>
