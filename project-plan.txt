@@ -8,4 +8,16 @@ modules
 
 
 Task: 
-1. Quantity Management in cart
+1. Add button on cart page with name: Proceed to Checkout
+2. Add new component called Checkout
+3. Create a CRUD operation of user address
+    a. List of addresses
+    a. Create: Add a add-address component form with the following field: 
+        1. Addressee Name
+        2. Address Line 1
+        3. Address Line 2
+        4. City
+        5. State
+        6. Country
+        7. Type(Home, Office dropdown)
+    

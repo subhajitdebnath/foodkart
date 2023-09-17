@@ -7,9 +7,9 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.description }}</p>
-          <button class="btn btn-primary" (click)="increment(item.id)">+</button>&nbsp;
-          <span>{{counter}}</span>&nbsp;
-          <button class="btn btn-primary" (click)="decrement()">-</button><br><br>
+          <button class="btn btn-primary" (click)="increment(i)">+</button>&nbsp;
+          <span>{{item.quantity}}</span>&nbsp;
+          <button class="btn btn-primary" (click)="decrement(i)">-</button><br><br>
           <button class="btn btn-danger" (click)="removeItem(i)">Remove</button>
           
         </div>

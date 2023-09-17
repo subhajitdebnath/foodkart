@@ -11,7 +11,8 @@ import { LocalstorageService } from 'src/app/core/services/localstorage.service'
 })
 export class HeaderComponent {
   isLoggedIn = false;
-  cart = [];
+  cart: any[] = [];
+  cartLength = 0;
 
   constructor(
     private authService: AuthService,
@@ -27,7 +28,17 @@ export class HeaderComponent {
 
     this.cartService.cartData.subscribe((cart: any) => {
       this.cart = cart;
+
+      this.calculateCartLength();
     });
+  }
+
+  calculateCartLength() {
+    this.cartLength = 0;
+    for(let i = 0; i < this.cart.length; i++) {
+      this.cartLength += this.cart[i].quantity;
+    }
+    console.log(this.cartLength);
   }
 
   onLogout(){
