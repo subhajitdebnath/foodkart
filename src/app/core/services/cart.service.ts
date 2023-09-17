@@ -37,5 +37,5 @@ export class CartService {
     this.cart = this.cart.filter(item => item.id !== product.id);
     this.lsService.setItem('cartData', JSON.stringify(this.cart));
     this.cartData.next(this.cart);
-  }
+  } 
 }
