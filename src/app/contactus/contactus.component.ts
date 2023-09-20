@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../core/services/data.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-contactus',
@@ -15,10 +16,12 @@ export class ContactusComponent {
   ) {}
 
   ngOnInit() {
-    this.dataService.getProducts().subscribe((res: any) => {
-      console.log(res.products);
-      this.products = res.products;
-    })
+
+    interval(2000).subscribe(count => {
+      console.log(count);
+    });
+
+
   }
 
 }
