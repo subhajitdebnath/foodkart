@@ -37,7 +37,6 @@ export class CartService {
       product['quantity'] = 1;
       this.cart.push(product);
     }
-
     this.lsService.setItem('cartData', JSON.stringify(this.cart));
     this.cartData.next(this.cart);
   }
@@ -58,4 +57,11 @@ export class CartService {
     this.lsService.setItem('cartData', JSON.stringify(this.cart));
     this.cartData.next(this.cart);
   }
+  getTotalPrice(): number {
+    let totalPrice = 0;
+    this.cart.map((cart :any) =>{
+      totalPrice += cart.price * cart.quantity;
+    });
+    return totalPrice;
+   }
 }

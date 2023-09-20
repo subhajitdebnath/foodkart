@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/core/services/cart.service';
 import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
@@ -10,26 +11,20 @@ import { LocalstorageService } from 'src/app/core/services/localstorage.service'
 export class CartItemComponent {
 
   cartItems: any[] = [];
+  totalPrice : number = 0;
   constructor(
     private cartService: CartService,
-    private lsService: LocalstorageService
+    private lsService: LocalstorageService,
+    private router:Router
   ) {}
 
   ngOnInit() {
     this.cartService.cartData.subscribe((cart: any) => {
       console.log(cart);
       this.cartItems = cart;
-    // let cartData = this.lsService.getItem('cartData');
-    // if(cartData){
-    //  this.cartItems = JSON.parse(cartData);
-    //  console.log(this.cartItems);
-    //   }
-    //   else{
-    //     this.cartItems = [];
-    //   }
+      this.totalPrice = this.cartService.getTotalPrice(); 
     });
   }
-
   removeItem(index: number) {
     this.cartService.remove(this.cartItems[index]);
   }
@@ -39,5 +34,10 @@ export class CartItemComponent {
   }
   decrement(index: number){
     this.cartService.decrement(index);
+  }
+
+ checkout(){
+  this.lsService.setItem('cartData', JSON.stringify(this.cartItems)); 
+  this.router.navigate(['checkout']);
   }
 }

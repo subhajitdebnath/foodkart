@@ -6,16 +6,24 @@ import { AuthIndependentComponent } from './auth-independent.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddAddressComponent } from './add-address/add-address.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 
 @NgModule({
   declarations: [
     AuthIndependentComponent,
     ProductListComponent,
-    CartItemComponent
+    CartItemComponent,
+    AddAddressComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule,
-    AuthIndependentRoutingModule
+    AuthIndependentRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthIndependentModule { }
