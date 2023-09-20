@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserdataService } from 'src/app/core/services/userdata.service';
-import { User } from 'src/app/models/User';
+import { UserAddress } from 'src/app/models/User';
 
 @Component({
   selector: 'app-checkout',
@@ -9,16 +9,14 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent {
-users : User[] = [];
+userAddresses : UserAddress[] = [];
 
 constructor(private router:Router,
   private userdataService :UserdataService){}
 
 ngOnInit(){
-    this.userdataService.listUsers().subscribe((data : any) => {
-      this.users = data;
-    });
-  }
+  this.userAddresses = this.userdataService.userAddress;
+}
 
 addUser():void{
  this.router.navigate(['address']);

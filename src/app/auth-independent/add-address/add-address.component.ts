@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/core/services/cart.service';
 import { UserdataService } from 'src/app/core/services/userdata.service';
-import { User } from 'src/app/models/User';
+import { UserAddress } from 'src/app/models/User';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-address',
@@ -15,9 +16,8 @@ export class AddAddressComponent {
   cartItems : any[] = [];
   addressForm!:FormGroup;
   addressFormSubmit = false;
-  usermodelObj : User;
+  usermodelObj : UserAddress;
   constructor(
-    private cartService:CartService,
     private formBuilder: FormBuilder,
     private router: Router,
     private userdataService :UserdataService
@@ -36,26 +36,10 @@ export class AddAddressComponent {
     });
   }
 
-    onSubmit(){
-      this.addressFormSubmit = true;
-      console.log(this.addressForm.value);
-      this.usermodelObj.fullName =this.addressForm.value.fullName;
-      this.usermodelObj.email =this.addressForm.value.email;
-      this.usermodelObj.addressLine1 =this.addressForm.value.addressLine1;
-      this.usermodelObj.addressLine2 =this.addressForm.value.addressLine2;
-      this.usermodelObj.city =this.addressForm.value.city;
-      this.usermodelObj.pincode =this.addressForm.value.pincode;
-      this.usermodelObj.country =this.addressForm.value.country;
-    
-      //this.router.navigate(['checkout']);
-     
-      // this.userdataService.postUsers(this.usermodelObj).subscribe(res => {
-      //    alert("Address saved successfully");
-      // },
-      // err => {
-      //   alert("something went wrong");
-      // });        
-
-      localStorage.setItem('userAddress', JSON.stringify(this.addressForm.value.fullName));
-    }
+  onSubmit(){
+    this.addressFormSubmit = true;
+    console.log(this.addressForm.value);
+    this.addressForm.value.id = uuidv4();
+    this.userdataService.addAddress(this.addressForm.value);
+  }
 }

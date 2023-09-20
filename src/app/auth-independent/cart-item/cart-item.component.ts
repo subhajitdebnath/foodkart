@@ -36,8 +36,7 @@ export class CartItemComponent {
     this.cartService.decrement(index);
   }
 
- checkout(){
-  this.lsService.setItem('cartData', JSON.stringify(this.cartItems)); 
-  this.router.navigate(['checkout']);
+  checkout(){
+    this.router.navigate(['checkout']);
   }
 }

@@ -1,24 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LocalstorageService } from './localstorage.service';
+import { UserAddress } from 'src/app/models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserdataService {
-  
-  // Our created Data can be accessed here at api/checkout
-  baseURL: string = "http://localhost:3000/";
- 
 
-  //Injecting HTTP service to communicate with the data
-  constructor(private http:HttpClient) { }
-
-  //Get User Lists
-  listUsers(){
-  return this.http.get(this.baseURL + 'checkout');
+  constructor(
+    private lsService: LocalstorageService,
+  ) {
+    this.checkUserAddressState();
   }
-  //Create User Address
-  postUsers(){
 
+  userAddress: UserAddress[] = [];
+
+  checkUserAddressState() {
+    let userAddress = this.lsService.getItem('userAddress');
+    if(userAddress) {
+      this.userAddress = JSON.parse(userAddress);
+    } else {
+      this.userAddress = [];
+    }
+    // this.userAddress.next(this.cart);
+  }
+  
+  addAddress(address: UserAddress) {
+    this.userAddress.push(address);
+    this.lsService.setItem('userAddress', JSON.stringify(this.userAddress));
   }
 }
