@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../core/services/data.service';
-import { interval } from 'rxjs';
+import { Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-contactus',
@@ -11,17 +11,25 @@ export class ContactusComponent {
 
   products: any[] = [];
 
+  private firstSub!: Subscription;
+
   constructor(
     private dataService: DataService
   ) {}
 
   ngOnInit() {
 
-    interval(2000).subscribe(count => {
+    this.firstSub = interval(2000).subscribe(count => {
       console.log(count);
     });
 
 
+  }
+
+  ngOnDestroy() {
+    console.log('destroy contact us');
+
+    this.firstSub.unsubscribe();
   }
 
 }
