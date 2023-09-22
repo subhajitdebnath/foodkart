@@ -4,7 +4,7 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th class="hidden">Id</th>
+        <th class="hidden">Serial Number</th>
         <th>FullName</th>
         <th>Email</th>
         <th>Address Line1</th>
@@ -16,8 +16,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of userAddresses; let i=index">
-        <td class="hidden">{{user.id}}</td>
+      <tr *ngFor="let user of userAddresses; let i = index">
+        <td>{{i + 1}}</td>
         <td>{{user.fullName}}</td>
         <td>{{user.email}}</td>
         <td>{{user.addressLine1}}</td>
@@ -26,8 +26,10 @@
         <td>{{user.pincode}}</td>
         <td>{{user.country}}</td>
          <td>
+          <div style="display: flex;">
             <button class="btn btn-success" (click)="deleteUserAddress(user)"> Delete</button>&nbsp;       
             <button class="btn btn-success" (click)="editUserAddress(user.id)" style="margin-left: 20px;"> Edit</button>
+          </div>
         </td>
         </tr>
       </tbody>

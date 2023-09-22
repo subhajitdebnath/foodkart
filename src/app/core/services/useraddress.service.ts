@@ -16,21 +16,30 @@ export class UseraddressService {
  
   checkUserAddressState() {
     let userAddress = this.lsService.getItem('userAddress');
-    if(userAddress){
+    if(userAddress) {
       this.userAddress = JSON.parse(userAddress);
     }
-    else{
+    else {
       this.userAddress = [];
     }
   }
-  addAddress(address :UserAddress): void{
+  addAddress(address: UserAddress): void{
    this.userAddress.push(address);
    this.lsService.setItem('userAddress', JSON.stringify(this.userAddress));
   }
+
   removeAddress(userId: number) {
     const index = this.userAddress.findIndex((elem) => elem.id == userId);
     this.userAddress.splice(index, 1); 
     this.lsService.setItem('userAddress', JSON.stringify(this.userAddress));
   }
+
+  updateAddress(address: UserAddress) {
+    const index = this.userAddress.findIndex((elem) => elem.id == address.id);
+    if(index > -1) {
+      this.userAddress[index] = address;
+      this.lsService.setItem('userAddress', JSON.stringify(this.userAddress));
+    }
   }
+}
 

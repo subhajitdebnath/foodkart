@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8">
       <h4>Add Shipping Adress</h4>
-      <form novalidate class="form-control" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+      <form novalidate class="form-control" [formGroup]="addressForm" (ngSubmit)="onSubmit()" *ngIf="!errorBoundery">
         <div class="form-group">
           <label for="fullName">Full Name</label>
           <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="" />
@@ -306,6 +306,7 @@
         <button type="submit" class="btn btn-primary" *ngIf="currentId">Update Address</button> &nbsp;        
         <button type="submit" class="btn btn-primary" [routerLink]="['/checkout']">Cancel</button>
       </form>
+      <h5 *ngIf="errorBoundery">Something went wrong!</h5>
     </div>
   </div>
 </div>
