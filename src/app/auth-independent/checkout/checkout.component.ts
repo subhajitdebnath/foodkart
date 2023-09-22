@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserdataService } from 'src/app/core/services/userdata.service';
+import { UseraddressService } from 'src/app/core/services/useraddress.service';
 import { UserAddress } from 'src/app/models/User';
 
 @Component({
@@ -12,14 +12,20 @@ export class CheckoutComponent {
 userAddresses : UserAddress[] = [];
 
 constructor(private router:Router,
-  private userdataService :UserdataService){}
+  private useraddressService : UseraddressService){}
 
 ngOnInit(){
-  this.userAddresses = this.userdataService.userAddress;
+  this.userAddresses = this.useraddressService.userAddress;
 }
 
-addUser():void{
+addUserAddress():void{
  this.router.navigate(['address']);
 }
-
+deleteUserAddress(id: any){
+this.useraddressService.removeAddress(id);
+}
+editUserAddress(id :number){
+this.router.navigate(['address', id]);
+//this.useraddressService.editAddress(id);
+}
 }

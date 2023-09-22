@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'address',
     component: AddAddressComponent
+  },
+  {
+    path: 'address/:id',
+    component: AddAddressComponent
   }
 ];
 

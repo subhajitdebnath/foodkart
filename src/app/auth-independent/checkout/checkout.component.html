@@ -1,8 +1,6 @@
 <div class="col-md-6 user-container" style="margin: 20px;">
     <h2 style="margin: auto"> Address Details</h2>
-    <button class="btn btn-success" (click)="addUser()"> Add Address</button> &nbsp;
-    <button class="btn btn-success"> Delete</button>
-    <button class="btn btn-success" style="margin-left: 20px;"> Edit</button>
+    <button class="btn btn-success" (click)="addUserAddress()"> Add Address</button> &nbsp;
     <table class="table table-striped">
       <thead>
       <tr>
@@ -14,22 +12,23 @@
         <th>City</th>
         <th>PIN Code</th>
         <th>Country</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of userAddresses">
-        <td class="hidden"></td>
+      <tr *ngFor="let user of userAddresses; let i=index">
+        <td class="hidden">{{user.id}}</td>
         <td>{{user.fullName}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-            <!-- <button class="btn btn-success" (click)="deleteUser(user)"> Delete</button>
-          <button class="btn btn-success" (click)="editUser(user)" style="margin-left: 20px;"> Edit</button></td> -->
-        
+        <td>{{user.email}}</td>
+        <td>{{user.addressLine1}}</td>
+        <td>{{user.addressLine2}}</td>
+        <td>{{user.city}}</td>
+        <td>{{user.pincode}}</td>
+        <td>{{user.country}}</td>
+         <td>
+            <button class="btn btn-success" (click)="deleteUserAddress(user)"> Delete</button>&nbsp;       
+            <button class="btn btn-success" (click)="editUserAddress(user.id)" style="margin-left: 20px;"> Edit</button>
+        </td>
         </tr>
       </tbody>
     </table>
