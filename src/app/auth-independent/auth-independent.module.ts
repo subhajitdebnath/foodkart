@@ -9,6 +9,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     CommonModule,
     AuthIndependentRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AuthIndependentModule { }
