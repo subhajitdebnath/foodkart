@@ -11,9 +11,9 @@ export class SearchComponent {
  constructor(private cartService : CartService) {}
   ngOnInit(){
   }
-  search(event:any){
+  search(){
   //this.searchTerm = event.target.value;
-  console.log(this.searchTerm);
+  // console.log(this.searchTerm);
   this.cartService.search.next(this.searchTerm);
   }
 
