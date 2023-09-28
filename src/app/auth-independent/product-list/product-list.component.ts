@@ -11,6 +11,8 @@ export class ProductListComponent {
   products: any[] = [];
   allProducts: any[] = [];
   searchKey : string = '';
+
+  date: Date | undefined;
   //Inject data service here 
   constructor(
     private dataService: DataService,

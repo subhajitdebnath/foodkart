@@ -13,6 +13,8 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './product-list/search/search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 
+import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,10 @@ import { SearchResultComponent } from './search-result/search-result.component';
     AuthIndependentRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+
+    ButtonModule,
+    CalendarModule
   ]
 })
 export class AuthIndependentModule { }
