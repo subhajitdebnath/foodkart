@@ -4,6 +4,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'address/:id',
     component: AddAddressComponent
+  },
+  {
+    path: 'search',
+    component: SearchResultComponent
   }
 ];
 

@@ -14,6 +14,8 @@ export class HeaderComponent {
   cart: any[] = [];
   cartLength = 0;
 
+  keyword = '';
+
   constructor(
     private authService: AuthService,
     private cartService: CartService,
@@ -38,7 +40,7 @@ export class HeaderComponent {
     for(let i = 0; i < this.cart.length; i++) {
       this.cartLength += this.cart[i].quantity;
     }
-    console.log(this.cartLength);
+    // console.log(this.cartLength);
   }
 
   onLogout(){
@@ -47,5 +49,10 @@ export class HeaderComponent {
     this.authService.checkUserState();
     // Route to login page
     this.router.navigate(['login']);
+  }
+
+  search() {
+    // console.log(this.keyword);
+    this.router.navigateByUrl('/search?q=' + this.keyword);
   }
 }

@@ -11,6 +11,7 @@ import { AddAddressComponent } from './add-address/add-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './product-list/search/search.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SearchComponent } from './product-list/search/search.component';
     CartItemComponent,
     AddAddressComponent,
     CheckoutComponent,
-    SearchComponent
+    SearchComponent,
+    SearchResultComponent
   ],
   imports: [
     CommonModule,

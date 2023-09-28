@@ -11,8 +11,12 @@ export class DataService {
 
   //get Product
   getProduct(){
-  return this.http.get('https://dummyjson.com/products');
- 
+    return this.http.get('https://dummyjson.com/products');
+  }
+
+  //search Products
+  searchProducts(keyword: string){
+    return this.http.get('https://dummyjson.com/products/search?q=' + keyword);
   }
   
 }
