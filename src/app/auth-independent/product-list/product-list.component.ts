@@ -8,7 +8,8 @@ import { DataService } from 'src/app/core/services/data.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-  products : any[] = [];
+  products: any[] = [];
+  allProducts: any[] = [];
   searchKey : string = '';
   //Inject data service here 
   constructor(
@@ -17,15 +18,21 @@ export class ProductListComponent {
   ){}
 
   ngOnInit(){
-    this.dataService.getProduct().subscribe((data : any) =>{
+    this.dataService.getProduct().subscribe((data : any) => {
       console.log(data.products);
       this.products = data.products;
+      this.allProducts = Object.assign(this.products);
     });
     //search
     this.cartService.search.subscribe((val:any) =>{
-     this.searchKey = val;
-     console.log(this.searchKey);
-    })
+      this.searchKey = val;
+      // console.log(this.searchKey);
+      if(this.searchKey) {
+        this.products = this.allProducts.filter(products => products.title.toLowerCase().includes(this.searchKey.toLowerCase()));
+      } else {
+        this.products = this.allProducts;
+      }
+    });
   }
 
   addToCart(index: number) {
