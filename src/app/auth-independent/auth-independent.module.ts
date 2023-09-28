@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     ProductListComponent,
     CartItemComponent,
     AddAddressComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,

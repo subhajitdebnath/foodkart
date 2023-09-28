@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserinfoComponent } from './components/userinfo/userinfo.component';
 import { CapitalPipe } from './pipes/capital.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -10,7 +11,8 @@ import { HighlightDirective } from './directives/highlight.directive';
   declarations: [
     UserinfoComponent,
     CapitalPipe,
-    HighlightDirective
+    HighlightDirective,
+    FilterPipe
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { HighlightDirective } from './directives/highlight.directive';
   exports: [
     UserinfoComponent,
     CapitalPipe,
-    HighlightDirective
+    HighlightDirective,
+    FilterPipe
   ]
 })
 export class SharedModule { }

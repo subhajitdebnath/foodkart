@@ -9,6 +9,7 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class ProductListComponent {
   products : any[] = [];
+  searchKey : string = '';
   //Inject data service here 
   constructor(
     private dataService: DataService,
@@ -20,6 +21,11 @@ export class ProductListComponent {
       console.log(data.products);
       this.products = data.products;
     });
+    //search
+    this.cartService.search.subscribe((val:any) =>{
+     this.searchKey = val;
+     console.log(this.searchKey);
+    })
   }
 
   addToCart(index: number) {

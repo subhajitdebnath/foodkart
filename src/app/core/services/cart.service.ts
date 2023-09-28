@@ -10,7 +10,8 @@ export class CartService {
   cart: any[] = [];
 
   cartData = new BehaviorSubject(this.cart);
-
+  search = new BehaviorSubject<string>('');
+  
   constructor(
     private lsService: LocalstorageService,
   ) {
