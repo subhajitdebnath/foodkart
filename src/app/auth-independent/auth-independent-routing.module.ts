@@ -5,6 +5,7 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { PrimengComponent } from './primeng/primeng.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,11 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchResultComponent
-  }
+  },
+  {
+    path: 'primeng',
+    component: PrimengComponent
+  },
 ];
 
 @NgModule({

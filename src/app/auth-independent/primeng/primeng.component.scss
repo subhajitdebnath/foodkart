@@ -1,0 +1,12 @@
+::ng-deep {
+    .p-datatable.p-datatable-gridlines .p-datatable-thead > tr > th {
+        border-width: 1px 0 1px 1px;
+    }
+    .p-datatable.p-datatable-gridlines .p-datatable-tbody > tr > td {
+        border-width: 1px 0 0 1px;
+    }
+
+    .shade-row {
+        background-color: #d9d9d9;
+    }
+}

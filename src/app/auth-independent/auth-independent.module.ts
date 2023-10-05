@@ -15,6 +15,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
 
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
+import { PrimengComponent } from './primeng/primeng.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { CalendarModule } from 'primeng/calendar';
     AddAddressComponent,
     CheckoutComponent,
     SearchComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    PrimengComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ import { CalendarModule } from 'primeng/calendar';
     SharedModule,
 
     ButtonModule,
-    CalendarModule
+    CalendarModule,
+    TableModule
   ]
 })
 export class AuthIndependentModule { }
