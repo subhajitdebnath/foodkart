@@ -1,18 +1,43 @@
 <div class="card">
-    <p-table 
+    <p-table #dt dataKey="id"
         [value]="products" 
         [paginator]="true"
         [rows]="5"
         [showCurrentPageReport]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[5, 10, 15, 25, 50]"
-        styleClass="p-datatable-gridlines">
+        styleClass="p-datatable-gridlines"
+        [filterDelay]="0"
+        [globalFilterFields]="['id','title', 'category', 'price']">
+        <ng-template pTemplate="caption">
+            <div class="table-header">
+                List of Products
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="applyFilterGlobal(dt,$event)" placeholder="Global Search" />
+                </span>
+            </div>
+        </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
-                <th pSortableColumn="title">Name <p-sortIcon field="title"></p-sortIcon></th>
-                <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
-                <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+                <th style="width:25%" pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+                <th style="width:25%" pSortableColumn="title">Name <p-sortIcon field="title"></p-sortIcon></th>
+                <th style="width:25%" pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
+                <th style="width:25%" pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th>
+                    <p-columnFilter type="text" field="id"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="title"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="category"></p-columnFilter>
+                </th>
+                <th>
+                    <p-columnFilter type="text" field="price"></p-columnFilter>
+                </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product let-i="rowIndex">

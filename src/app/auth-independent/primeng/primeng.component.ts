@@ -9,7 +9,7 @@ import { DataService } from 'src/app/core/services/data.service';
 export class PrimengComponent {
 
   products: any[] = [];
-
+  
   constructor(
     private dataService: DataService,
   ) {}
@@ -20,5 +20,9 @@ export class PrimengComponent {
       this.products = data.products;
     });
   }
+  applyFilterGlobal(dt: any, event: any){
+    dt.filterGlobal(event.target.value, 'contains');
+  }
+  
 
 }

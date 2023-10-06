@@ -12,7 +12,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './product-list/search/search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
-
+import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { PrimengComponent } from './primeng/primeng.component';
@@ -35,7 +35,7 @@ import { TableModule } from 'primeng/table';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-
+    InputTextModule,
     ButtonModule,
     CalendarModule,
     TableModule
