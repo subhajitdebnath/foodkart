@@ -21,3 +21,51 @@ Task:
         6. Country
         7. Type(Home, Office dropdown)
     
+
+
+
+
+
+Api Cycle
+
+1. Request
+    1. Request Header
+    2. Request Body
+
+2. Response
+    1. Response Header
+    2. Response Body
+
+
+
+Api: /auth/login
+Request Body: {
+    "username": "kminchelle",
+    "password": "0lelplR"
+}
+Response Body: {
+    "id": 15,
+    "username": "kminchelle",
+    "email": "kminchelle@qq.com",
+    "firstName": "Jeanne",
+    "lastName": "Halvorson",
+    "gender": "female",
+    "image": "https://robohash.org/autquiaut.png",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoia21pbmNoZWxsZSIsImVtYWlsIjoia21pbmNoZWxsZUBxcS5jb20iLCJmaXJzdE5hbWUiOiJKZWFubmUiLCJsYXN0TmFtZSI6IkhhbHZvcnNvbiIsImdlbmRlciI6ImZlbWFsZSIsImltYWdlIjoiaHR0cHM6Ly9yb2JvaGFzaC5vcmcvYXV0cXVpYXV0LnBuZyIsImlhdCI6MTY5ODQyMTA0MCwiZXhwIjoxNjk4NDI0NjQwfQ.OMfAhM0Npru4EYg0NO-3Zj3JuglI1rKVwm7fbjyM4vE"
+}
+
+Api 2: /user/payment
+Request Body: {
+    "paymentAmount": "1000 USD"
+}
+Request Header: {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoia21pbmNoZWxsZSIsImVtYWlsIjoia21pbmNoZWxsZUBxcS5jb20iLCJmaXJzdE5hbWUiOiJKZWFubmUiLCJsYXN0TmFtZSI6IkhhbHZvcnNvbiIsImdlbmRlciI6ImZlbWFsZSIsImltYWdlIjoiaHR0cHM6Ly9yb2JvaGFzaC5vcmcvYXV0cXVpYXV0LnBuZyIsImlhdCI6MTY5ODQyMTA0MCwiZXhwIjoxNjk4NDI0NjQwfQ.OMfAhM0Npru4EYg0NO-3Zj3JuglI1rKVwm7fbjyM4vE"
+}
+Response Body: {
+    "status": "success",
+    "message": "You have been charged 1000 USD"
+}
+
+
+
+
