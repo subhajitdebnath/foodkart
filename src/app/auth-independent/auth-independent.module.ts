@@ -17,6 +17,9 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { PrimengComponent } from './primeng/primeng.component';
 import { TableModule } from 'primeng/table';
+import { NgrxComponent } from './ngrx/ngrx.component';
+import { CounterViewComponent } from './ngrx/counter-view/counter-view.component';
+import { CounterControlComponent } from './ngrx/counter-control/counter-control.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { TableModule } from 'primeng/table';
     CheckoutComponent,
     SearchComponent,
     SearchResultComponent,
-    PrimengComponent
+    PrimengComponent,
+    NgrxComponent,
+    CounterViewComponent,
+    CounterControlComponent
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { AddAddressComponent } from './add-address/add-address.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { PrimengComponent } from './primeng/primeng.component';
+import { NgrxComponent } from './ngrx/ngrx.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'primeng',
     component: PrimengComponent
+  },
+  {
+    path: 'ngrx',
+    component: NgrxComponent
   },
 ];
 

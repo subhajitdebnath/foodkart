@@ -10,6 +10,8 @@ import { HeaderComponent } from './layout/header/header.component';
 
 import { ToastModule } from 'primeng/toast';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './core/store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,11 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
 
-    ToastModule
+    ToastModule,
+
+    StoreModule.forRoot({
+      counter: counterReducer
+    }, {})
   ],
   providers: [
     {
