@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LocalstorageService } from './localstorage.service';
@@ -38,7 +38,11 @@ export class AuthService {
   }
 
   login(payload: any) {
-    return this.http.post('https://dummyjson.com/auth/login', payload);
+    const headerData = new HttpHeaders({
+      skipToken: 1
+    });
+    const options = { headers: headerData };
+    return this.http.post('https://dummyjson.com/auth/login', payload, options);
   }
 
 

@@ -3,9 +3,10 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpEventType
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { LocalstorageService } from '../services/localstorage.service';
 
 @Injectable()
@@ -18,15 +19,30 @@ export class TokenInterceptor implements HttpInterceptor {
   ){}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let auth = this.lsService.getItem('authData');
-    if(auth) {
-      this.user = JSON.parse(auth);
-      this.token = this.user.token;
-      // console.log(this.user.token);
+    // console.log(request.headers.keys());
+    let modifiedRequest;
+    if(request.headers.keys().includes('skipToken')) {
+      modifiedRequest = request.clone({
+        headers: request.headers.delete("skipToken")
+      });
+
+    } else {
+      let auth = this.lsService.getItem('authData');
+      if(auth) {
+        this.user = JSON.parse(auth);
+        this.token = this.user.token;
+        // console.log(this.user.token);
+      }
+      modifiedRequest = request.clone({
+        headers: request.headers.append("Authorization", "Bearer " + this.token)
+      });
     }
-    const modifiedRequest = request.clone({
-      headers: request.headers.append("Authorization", "Bearer " + this.token)
-    });
-    return next.handle(modifiedRequest);
+    return next.handle(modifiedRequest).pipe(
+      tap(event => {
+        if(event.type === HttpEventType.Response) {
+          console.log(event.body);
+        }
+      })
+    );
   }
 }
