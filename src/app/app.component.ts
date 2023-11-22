@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WeatherService } from './core/services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -6,63 +7,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  weather: any[] = [];
+  filteredItmes = [];
+  mapping: any = {};
+  filtercondition = ['06:00', '09:00', '14:00', '20:00'];
   
-  // foods = [
-  //   {
-  //     id: 1,
-  //     name: 'Breads',
-  //     price: 100,
-  //     quantity: 5
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Meat',
-  //     price: 200,
-  //     quantity: 4
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Salad',
-  //     price: 300,
-  //     quantity: 2
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Pizza',
-  //     price: 400,
-  //     quantity: 10
-  //   }
-  // ]
+  constructor(
+    private weatherService: WeatherService
+  ) {}
 
-  //Set value for price and quantity
-  // allFoods: any[] = [];
-  // selectedFood: any = null;
-  // constructor() {
-    
-  // }
+  ngOnInit() {
+    this.weatherService.getweather().subscribe((res: any) => {
+      res.hourly.time.forEach((item: any, index: number) => {
+        this.mapping[item] = res.hourly.temperature_2m[index];
+      });
+      console.log('mapping', this.mapping)
 
-  // ngOnInit() {
-  //   this.allFoods = this.foods;
-  // }
+      this.filteredItmes = res.hourly.time.filter((date: string) => this.filtercondition.includes(date.slice(-5)));
 
-  // selectFood(event: any) {
-  //   console.log(event);
-  //   this.selectedFood = event;
-  // }
+      console.log('filteredItmes', this.filteredItmes);
 
-  // applyFilter(filterData: any) {
-  //     this.foods = this.foods.filter((food: any) => {
-  //     return food.price >= filterData.minValue && food.price <= filterData.maxValue ||
-  //     food.quantity >= filterData.minValue && food.quantity <= filterData.maxValue;
-  //   })
-  //   // console.log(filterData.minValue);
-  //   // console.log(filterData.maxValue);
-    
-  // }
-
-  // resetFilter() {
-  //   this.foods = this.allFoods;
-  //   this.selectedFood = null;
-  // }
+    }, (err: any) => {
+      console.log(err);
+    });
+  }
 
 }
