@@ -33,17 +33,17 @@ export class AppComponent {
     });
 
 
-    let arr = [1, 2, 5, 7, 2, 6, 7, 2];
-    let result = [];
-    for(let i = 0; i < arr.length; i++) {
-      if(result[arr[i]]) {
-        result[arr[i]] += 1;
-      } else {
-        result[arr[i]] = 1;
-      }
-    }
+    // let arr = [1, 2, 5, 7, 2, 6, 7, 2];
+    // let result = [];
+    // for(let i = 0; i < arr.length; i++) {
+    //   if(result[arr[i]]) {
+    //     result[arr[i]] += 1;
+    //   } else {
+    //     result[arr[i]] = 1;
+    //   }
+    // }
 
-    console.log(result);
+    // console.log(result);
 
 
 
