@@ -13,6 +13,8 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './core/store/counter.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { CounterEffects } from './core/store/counter.effects';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       maxAge: 25,
       logOnly: true
     }),
+
+    EffectsModule.forRoot([
+      CounterEffects
+    ]),
   ],
   providers: [
     {
