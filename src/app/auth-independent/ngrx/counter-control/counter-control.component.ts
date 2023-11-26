@@ -13,7 +13,7 @@ export class CounterControlComponent {
     private store: Store
   ) {}
 
-  increment() {
-    this.store.dispatch(incrementAction());
+  increment(incrementor: number) {
+    this.store.dispatch(incrementAction({value: incrementor}));
   }
 }

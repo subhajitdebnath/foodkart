@@ -5,5 +5,5 @@ const initialState = 0;
 
 export const counterReducer = createReducer(
     initialState,
-    on(incrementAction, (state: any) => state + 1)
+    on(incrementAction, (state: any, action) => state + action.value)
 );

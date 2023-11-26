@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './core/store/counter.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,12 @@ import { counterReducer } from './core/store/counter.reducer';
 
     StoreModule.forRoot({
       counter: counterReducer
-    }, {})
+    }, {}),
+
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: true
+    }),
   ],
   providers: [
     {
