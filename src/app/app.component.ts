@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './core/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Foodcart';
+
+  welcome = '';
+
+  constructor(
+    private userService: UserService
+  ) {}
+
+  ngOnInit(): void {
+    this.welcome = this.userService.isLoggedIn
+      ? 'Welcome, ' + this.userService.user.name
+      : 'Please log in.';
+  }
 }
